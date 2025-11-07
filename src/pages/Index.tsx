@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { ChatMessage } from "@/components/ChatMessage";
 import { EnhancedChatInput } from "@/components/EnhancedChatInput";
 import { ChatHistory } from "@/components/ChatHistory";
-import { ModelSidebar } from "@/components/ModelSidebar";
 import { WelcomeScreen } from "@/components/WelcomeScreen";
 import { useChat } from "@/hooks/useChat";
 
@@ -31,12 +30,6 @@ const Index = () => {
     <div className="flex h-screen bg-background">
       {/* Chat History Sidebar */}
       <ChatHistory onNewChat={clearMessages} />
-
-      {/* Model Sidebar */}
-      <ModelSidebar 
-        selectedModel={selectedModel}
-        onSelectModel={setSelectedModel}
-      />
 
       {/* Main Chat Area */}
       <div className="flex flex-col flex-1">
