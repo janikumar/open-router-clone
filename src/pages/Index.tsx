@@ -61,9 +61,10 @@ const Index = () => {
       {/* Main Chat Area */}
       <div className="flex flex-col flex-1 min-w-0">
         {/* Top Navigation */}
-        <header className="border-b border-border bg-background px-3 sm:px-4 md:px-6 py-3 flex items-center justify-between gap-3 sm:gap-6">
+        <header className="border-b border-border bg-background px-3 sm:px-4 md:px-6 py-3 flex items-center gap-3 sm:gap-4">
+          {/* Left Section - Logo and Mobile Menu */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Only on mobile */}
             <Button
               variant="ghost"
               size="icon"
@@ -73,29 +74,34 @@ const Index = () => {
               {isSidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
 
-            {/* OpenRouter Logo - Visible on mobile when navbar collapses */}
-            <div className="flex items-center gap-2 sm:hidden">
+            {/* OpenRouter Logo - Always visible on top left */}
+            <div className="flex items-center gap-2">
               <MessageSquare className="h-5 w-5 text-primary" />
               <span className="font-semibold text-foreground">OpenRouter</span>
             </div>
           </div>
 
-          <nav className="hidden sm:flex items-center gap-3 md:gap-6">
-            <button className="text-sm text-foreground hover:text-primary transition-colors">
+          {/* Spacer to push nav and user avatar to the right */}
+          <div className="flex-1"></div>
+
+          {/* Navigation - Always visible, aligned to the right */}
+          <nav className="flex items-center gap-2 sm:gap-3 md:gap-4">
+            <button className="text-xs sm:text-sm text-foreground hover:text-primary transition-colors px-2 py-1">
               Models
             </button>
-            <button className="text-sm text-foreground hover:text-primary transition-colors">
+            <button className="text-xs sm:text-sm text-foreground hover:text-primary transition-colors px-2 py-1">
               Chat
             </button>
-            <button className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden md:block">
+            <button className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors px-2 py-1">
               Rankings
             </button>
-            <button className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden md:block">
+            <button className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors px-2 py-1">
               Docs
             </button>
           </nav>
           
-          <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-semibold ml-auto sm:ml-0 flex-shrink-0">
+          {/* User Avatar */}
+          <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-semibold flex-shrink-0">
             U
           </div>
         </header>

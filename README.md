@@ -1,73 +1,204 @@
-# Welcome to your Lovable project
+# OpenAI Chat Mirror
 
-## Project info
+A modern, responsive AI chat interface that provides a seamless experience for interacting with multiple AI models. Built with React, TypeScript, and Tailwind CSS, this application mirrors the OpenRouter chat interface with enhanced features and mobile-first design.
 
-**URL**: https://lovable.dev/projects/bd83cd70-f1e5-4ba0-a754-565fc6231ae9
+## 🚀 Features
 
-## How can I edit this code?
+- **Real-time Streaming Chat**: Server-sent events (SSE) for progressive message rendering
+- **Multi-Model Support**: Switch between different AI models (Gemini, GPT, etc.)
+- **Fully Responsive**: Mobile-first design with optimized layouts for all screen sizes
+- **Dark Theme**: Beautiful dark mode interface with custom color schemes
+- **Quick Actions**: Pre-built templates for common tasks (images, apps, games)
+- **Chat History**: Sidebar with conversation management
+- **Modern UI Components**: Built with shadcn/ui and Radix UI primitives
 
-There are several ways of editing your application.
+## 🛠️ Technology Stack
 
-**Use Lovable**
+### Frontend
+- **React 18.3.1** - UI library
+- **TypeScript 5.8.3** - Type safety
+- **Vite 5.4.19** - Build tool and dev server
+- **Tailwind CSS 3.4.17** - Utility-first CSS framework
+- **shadcn/ui** - Component library
+- **Radix UI** - Accessible component primitives
+- **Lucide React** - Icon library
+- **React Router DOM** - Client-side routing
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bd83cd70-f1e5-4ba0-a754-565fc6231ae9) and start prompting.
+### State Management
+- **TanStack React Query** - Server state management
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
 
-Changes made via Lovable will be committed automatically to this repo.
+### Backend
+- **Supabase** - Backend as a Service
+- **Edge Functions** - Serverless API endpoints (Deno runtime)
+- **AI Gateway** - Model routing and streaming
 
-**Use your preferred IDE**
+## 📦 Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
+- Node.js 16+ or Bun
+- npm, yarn, pnpm, or bun package manager
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Setup
 
-Follow these steps:
+```bash
+# Clone the repository
+git clone https://github.com/janikumar/openai-chat-mirror.git
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Navigate to the project directory
+cd openai-chat-mirror
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
+# or
+bun install
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your Supabase credentials
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
+# or
+bun dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔧 Environment Variables
 
-**Use GitHub Codespaces**
+Create a `.env` file in the root directory:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+```
 
-## What technologies are used for this project?
+For the Supabase Edge Function, set:
 
-This project is built with:
+```env
+LOVABLE_API_KEY=your_ai_gateway_api_key
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Project Structure
 
-## How can I deploy this project?
+```
+openai-chat-mirror/
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/             # shadcn/ui components
+│   │   ├── ChatHistory.tsx
+│   │   ├── ChatMessage.tsx
+│   │   ├── EnhancedChatInput.tsx
+│   │   └── WelcomeScreen.tsx
+│   ├── hooks/              # Custom React hooks
+│   │   └── useChat.ts
+│   ├── pages/              # Route pages
+│   │   ├── Index.tsx
+│   │   └── NotFound.tsx
+│   ├── lib/                # Utilities
+│   └── integrations/       # External services
+│       └── supabase/
+├── supabase/
+│   └── functions/
+│       └── chat/           # AI chat endpoint
+└── public/                 # Static assets
+```
 
-Simply open [Lovable](https://lovable.dev/projects/bd83cd70-f1e5-4ba0-a754-565fc6231ae9) and click on Share -> Publish.
+## 🎨 Responsive Design
 
-## Can I connect a custom domain to my Lovable project?
+The application is fully responsive with breakpoints:
+- **Mobile**: < 640px
+- **Tablet**: ≥ 640px
+- **Desktop**: ≥ 1024px
+- **Large Desktop**: ≥ 1280px
 
-Yes, you can!
+### Mobile Features
+- Collapsible sidebar with smooth animations
+- Touch-optimized UI elements
+- Responsive navigation with hamburger menu
+- Adaptive font sizes and spacing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🚀 Available Scripts
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+# Development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Build for development mode
+npm run build:dev
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
+```
+
+## 🏗️ Development Workflow
+
+1. **Local Development**: Use `npm run dev` for hot-reload development
+2. **Component Development**: Components follow atomic design principles
+3. **Styling**: Tailwind CSS with custom design tokens
+4. **Type Safety**: Full TypeScript coverage with strict mode
+5. **Code Quality**: ESLint configuration for React best practices
+
+## 🌐 Deployment
+
+### Build
+
+```bash
+npm run build
+```
+
+The build output will be in the `dist/` directory.
+
+### Deploy Options
+
+- **Vercel**: Connect your GitHub repository
+- **Netlify**: Drag and drop the `dist` folder
+- **Cloudflare Pages**: Connect via Git integration
+- **GitHub Pages**: Use GitHub Actions workflow
+- **Custom Server**: Serve the `dist` folder with any static host
+
+### Supabase Edge Functions
+
+Deploy edge functions using Supabase CLI:
+
+```bash
+supabase functions deploy chat
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) for the amazing component library
+- [Radix UI](https://www.radix-ui.com/) for accessible primitives
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [Supabase](https://supabase.com/) for backend infrastructure
+
+## 📧 Contact
+
+For questions or support, please open an issue on GitHub.
+
+---
+
+**Repository**: [github.com/janikumar/openai-chat-mirror](https://github.com/janikumar/openai-chat-mirror)
+
