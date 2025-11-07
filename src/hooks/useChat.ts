@@ -137,5 +137,16 @@ export const useChat = () => {
     }
   };
 
-  return { messages, isLoading, sendMessage, selectedModel, setSelectedModel };
+  const clearMessages = () => {
+    setMessages([]);
+  };
+
+  return { 
+    messages, 
+    isLoading, 
+    sendMessage, 
+    selectedModel, 
+    setSelectedModel,
+    clearMessages 
+  };
 };
