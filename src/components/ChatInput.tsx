@@ -27,23 +27,23 @@ export const ChatInput = ({ onSend, disabled }: ChatInputProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 border-t border-border bg-card/30 backdrop-blur">
-      <div className="flex gap-3 max-w-4xl mx-auto w-full">
+    <form onSubmit={handleSubmit} className="p-2 sm:p-4 border-t border-border bg-card/30 backdrop-blur">
+      <div className="flex gap-2 sm:gap-3 max-w-4xl mx-auto w-full">
         <Textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Send a message..."
-          className="min-h-[60px] max-h-[200px] resize-none bg-secondary border-border focus-visible:ring-primary"
+          className="min-h-[50px] sm:min-h-[60px] max-h-[150px] sm:max-h-[200px] resize-none bg-secondary border-border focus-visible:ring-primary text-sm sm:text-base"
           disabled={disabled}
         />
         <Button 
           type="submit" 
           disabled={!input.trim() || disabled}
-          className="bg-primary hover:bg-primary/90 shadow-[var(--shadow-glow)] transition-all duration-300"
+          className="bg-primary hover:bg-primary/90 shadow-[var(--shadow-glow)] transition-all duration-300 h-auto"
           size="icon"
         >
-          <Send className="h-5 w-5" />
+          <Send className="h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
       </div>
     </form>

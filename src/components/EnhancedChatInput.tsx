@@ -41,16 +41,16 @@ export const EnhancedChatInput = ({ onSend, disabled }: EnhancedChatInputProps) 
 
   return (
     <div className="border-t border-border bg-background">
-      <div className="max-w-4xl mx-auto w-full p-4">
+      <div className="max-w-4xl mx-auto w-full p-2 sm:p-4">
         {/* Quick Actions */}
-        <div className="flex gap-2 mb-3 flex-wrap">
+        <div className="flex gap-2 mb-3 flex-wrap overflow-x-auto pb-1">
           {quickActions.map((action, index) => (
             <button
               key={index}
-              className="px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 border border-border text-xs flex items-center gap-1.5 transition-colors"
+              className="px-2 sm:px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 border border-border text-xs flex items-center gap-1.5 transition-colors whitespace-nowrap flex-shrink-0"
             >
               <span>{action.icon}</span>
-              <span className="text-muted-foreground">{action.label}</span>
+              <span className="text-muted-foreground hidden sm:inline">{action.label}</span>
             </button>
           ))}
         </div>
@@ -67,13 +67,13 @@ export const EnhancedChatInput = ({ onSend, disabled }: EnhancedChatInputProps) 
           />
           
           {/* Bottom toolbar */}
-          <div className="flex items-center justify-between mt-2">
-            <div className="flex items-center gap-1">
+          <div className="flex items-center justify-between mt-2 gap-2">
+            <div className="flex items-center gap-0.5 sm:gap-1 overflow-x-auto">
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                className="h-8 w-8 flex-shrink-0 text-muted-foreground hover:text-foreground"
               >
                 <Settings className="h-4 w-4" />
               </Button>
@@ -81,7 +81,7 @@ export const EnhancedChatInput = ({ onSend, disabled }: EnhancedChatInputProps) 
                 type="button"
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                className="h-8 w-8 flex-shrink-0 text-muted-foreground hover:text-foreground"
               >
                 <Paperclip className="h-4 w-4" />
               </Button>
@@ -89,7 +89,7 @@ export const EnhancedChatInput = ({ onSend, disabled }: EnhancedChatInputProps) 
                 type="button"
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                className="h-8 w-8 flex-shrink-0 text-muted-foreground hover:text-foreground"
               >
                 <Wand2 className="h-4 w-4" />
               </Button>
@@ -97,7 +97,7 @@ export const EnhancedChatInput = ({ onSend, disabled }: EnhancedChatInputProps) 
                 type="button"
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                className="h-8 w-8 flex-shrink-0 text-muted-foreground hover:text-foreground"
               >
                 <Mic className="h-4 w-4" />
               </Button>
@@ -105,27 +105,28 @@ export const EnhancedChatInput = ({ onSend, disabled }: EnhancedChatInputProps) 
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="h-8 text-muted-foreground hover:text-foreground gap-1"
+                className="h-8 text-muted-foreground hover:text-foreground gap-1 hidden md:flex"
               >
                 <Search className="h-4 w-4" />
-                Search
+                <span className="hidden lg:inline">Search</span>
               </Button>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-shrink-0">
               <Button
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="h-8 text-muted-foreground hover:text-foreground gap-1"
+                className="h-8 text-muted-foreground hover:text-foreground gap-1 hidden sm:flex"
               >
                 <MessageSquare className="h-4 w-4" />
-                Memory (9)
+                <span className="hidden md:inline">Memory (9)</span>
+                <span className="md:hidden">9</span>
               </Button>
               <Button 
                 type="submit" 
                 disabled={!input.trim() || disabled}
-                className="bg-primary hover:bg-primary/90 h-8 px-4"
+                className="bg-primary hover:bg-primary/90 h-8 px-3 sm:px-4"
                 size="sm"
               >
                 <Send className="h-4 w-4" />
